@@ -9,6 +9,9 @@ import { MissionListComponent } from './mission-list/mission-list.component';
 import { MissionFilterComponent } from './mission-filter/mission-filter.component';
 import { YearFilterPipe } from './year-filter.pipe';
 import { MissionDetailsComponent } from './mission-details/mission-details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import { MissionDetailsComponent } from './mission-details/mission-details.compo
     BrowserModule,
     FormsModule,
     HttpClientModule, 
-    AppRoutingModule
+    AppRoutingModule, BrowserAnimationsModule,
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
