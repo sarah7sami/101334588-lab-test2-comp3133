@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-mission-list',
@@ -7,21 +7,15 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./mission-list.component.css']
 })
 export class MissionListComponent implements OnInit {
-  missions: any[] | undefined;
+  @Input() selectedYear: string = '';
+  missions: any[] = [];
 
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    this.http.get<any[]>('https://api.spacexdata.com/v3/launches').subscribe(data => {
-      this.missions = data.map(mission => {
-        return {
-          missionName: mission.mission_name,
-          launchYear: mission.launch_year,
-          details: mission.details,
-          missionPatchSmall: mission.links.mission_patch_small
-        };
+    this.http.get<any[]>('https://api.spacexdata.com/v3/launches')
+      .subscribe(missions => {
+        this.missions = missions;
       });
-    });
   }
 }
-

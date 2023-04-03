@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-mission-filter',
@@ -6,20 +6,12 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./mission-filter.component.css']
 })
 export class MissionFilterComponent {
-  years: number[] = [];
-  selectedYear: number | undefined;
+  @Output() yearSelected = new EventEmitter<string>();
+  @Input() selectedYear: string = '';
 
-  @Output() yearSelected = new EventEmitter<number>();
+  years = ['2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021'];
 
-  constructor() {
-    const currentYear = new Date().getFullYear();
-    for (let year = currentYear; year >= 2006; year--) {
-      this.years.push(year);
-    }
-  }
-
-  onYearChange(year: number) {
-    this.selectedYear = year;
-    this.yearSelected.emit(this.selectedYear);
+  onYearSelected(year: string) {
+    this.yearSelected.emit(year);
   }
 }
