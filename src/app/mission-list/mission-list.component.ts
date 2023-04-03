@@ -1,11 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, Input } from '@angular/core';
+import { YearFilterPipe } from '../year-filter.pipe';
+
 
 @Component({
   selector: 'app-mission-list',
   templateUrl: './mission-list.component.html',
-  styleUrls: ['./mission-list.component.css']
+  styleUrls: ['./mission-list.component.css'],
 })
+
 export class MissionListComponent implements OnInit {
   @Input() selectedYear: string = '';
   missions: any[] = [];
@@ -17,5 +20,9 @@ export class MissionListComponent implements OnInit {
       .subscribe(missions => {
         this.missions = missions;
       });
+  }
+
+  onYearSelected(year: string) {
+    this.selectedYear = year;
   }
 }
