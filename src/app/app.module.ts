@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MissionListComponent } from './mission-list/mission-list.component';
 import { MissionFilterComponent } from './mission-filter/mission-filter.component';
 import { YearFilterPipe } from './year-filter.pipe';
+import { MissionDetailsComponent } from './mission-details/mission-details.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { YearFilterPipe } from './year-filter.pipe';
     MissionListComponent,
     MissionFilterComponent,
     YearFilterPipe,
+    MissionDetailsComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row container bg-white">
+      <div class="col-12">
+        <div class="card h-100 p-3">
+          <div class="card-header">
+            <img src="{{ mission.links.mission_patch_small }}" alt="mission_patch" height="40" width="40">
+            {{ mission.mission_name }}
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-4">
+                <img src="{{ mission.links.mission_patch }}" alt="mission_image" class="w-100">
+              </div>
+              <div class="col-md-8">
+                <p>Flight Number: {{ mission.flight_number }}</p>
+                <p>Launch Year: {{ mission.launch_year }}</p>
+                <p>Launch Date: {{ mission.launch_date_utc }}</p>
+                <p>Mission Type: {{ mission.rocket.second_stage.payloads[0].payload_type }}</p>
+                <p>Launch Site: {{ mission.launch_site.site_name_long }}</p>
+                <p>Details: {{ mission.details ? mission.details : 'No details provided for this mission.' }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
