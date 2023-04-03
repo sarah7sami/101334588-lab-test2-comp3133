@@ -24,3 +24,4 @@ export class MissionListComponent implements OnInit {
     });
   }
 }
+

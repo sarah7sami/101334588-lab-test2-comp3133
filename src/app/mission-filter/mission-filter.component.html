@@ -1,1 +1,4 @@
-<p>mission-filter works!</p>
+<select (change)="onYearSelected($event.target.value)">
+    <option value="">Filter by year</option>
+    <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+</select>

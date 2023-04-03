@@ -1,1 +1,10 @@
-<p>mission-list works!</p>
+<app-mission-filter (yearSelected)="onYearSelected($event)"></app-mission-filter>
+
+<div class="missions" *ngIf="missions">
+  <div *ngFor="let mission of missions | filterByYear:yearFilter">
+    <h3>{{ mission.mission_name }}</h3>
+    <p>Launch Year: {{ mission.launch_year }}</p>
+    <p>{{ mission.details }}</p>
+    <img *ngIf="mission.links.mission_patch_small" [src]="mission.links.mission_patch_small" alt="{{ mission.mission_name }} Patch">
+  </div>
+</div>
