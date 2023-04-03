@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-mission-filter',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./mission-filter.component.css']
 })
 export class MissionFilterComponent {
+  @Output() yearSelected = new EventEmitter<number>();
 
+  onYearSelected(year: number) {
+    this.yearSelected.emit(year);
+  }
 }
