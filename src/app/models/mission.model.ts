@@ -1,4 +1,4 @@
-interface Mission {
+export interface Mission {
     flight_number: number;
     mission_name: string;
     mission_id: string[];

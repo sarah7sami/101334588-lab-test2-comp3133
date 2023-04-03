@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Mission } from '../models/mission.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,9 +12,10 @@ export class SpaceXService {
 
   constructor(private http: HttpClient) { }
 
-  getLaunches() {
-    return this.http.get(`${this.apiUrl}/launches`);
+  getLaunches(): Observable<Mission[]> {
+    return this.http.get<Mission[]>(`${this.apiUrl}/launches`);
   }
+  
 
   getLaunchesByYear(year: number) {
     return this.http.get(`${this.apiUrl}/launches?launch_year=${year}`);
