@@ -1,15 +1,15 @@
 <div class="container">
-  <div class="row">
+  <div class="row container bg-white">
     <div class="col-4" *ngFor="let mission of missions | yearFilter:selectedYear">
-      <div class="card">
+      <div class="card h-100 p-3">
+        
         <div class="card-header">
+          <img src="{{ mission.links.mission_patch_small }}" alt="mission_patch" height="40" width="40">
           {{ mission.mission_name }}
         </div>
-        <div class="card-body">
-          <p>Mission ID: {{ mission.mission_id }}</p>
+        <div class="card-body d-flex flex-column">
           <p>Launch Year: {{ mission.launch_year }}</p>
-          <p>Successful Launch: {{ mission.launch_success }}</p>
-          <p>Successful Landing: {{ mission.land_success }}</p>
+          <p class="flex-grow-1 overflow-hidden">{{ mission.details ? mission.details : 'No details provided for this mission.' }}</p>
         </div>
       </div>
     </div>
